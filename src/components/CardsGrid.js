@@ -1,82 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
-// import InfoIcon from '@material-ui/icons/Info';
-// import tileData from './tileData';
 
-const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    padding: 3,
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 450,
-  },
-  icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
+    marginLeft: 330,
+    width: 260,
+    height: 500,
   },
 }));
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 
- 
-export default function CardsGrid(props) {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Cards</ListSubheader>
-        </GridListTile>
-        {this.props.cards.map(card => (
-          <GridListTile key={card.id}>
-            <img src={card.url} alt={""} />
-            <GridListTileBar
-              title={card.name}
-                    subtitle={<span>by: {card.artist} {card.set} {card.originalType}</span>}
-              actionIcon={
-                  <IconButton aria-label={`info about ${card.name}`} className={classes.icon}>
-                  {/* <InfoIcon /> */}
-                </IconButton>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
-  );
+export default class CardsGrid extends Component {
+  constructor(props) {
+    super(props);
 }
 
-//  {this.props.cards.map(card => (
-//             <Grid key={card.id}>
-//               <Grid item xs={12} sm={6}>
-//                 <h6 data-tooltip={card.name}>
-//                   <img href="#" src={card.url} alt={""} />
-//                 </h6>
-//               </Grid>
-//             </Grid>
+render() {
+  return (
+    <div className={useStyles.root} style={{marginLeft: 330}}>
+      <GridList cellHeight={465} cols={3} style={{ height: 'auto', width: 'auto' }} className={useStyles.gridList}>
+          {this.props.cards.map(card => (
+            <GridListTile key={card.id}>
+              <img src={card.url} alt={""} />
+              <GridListTileBar
+                title={card.name}
+                      subtitle={<span>by: {card.artist} {card.set} {card.originalType}</span>}
+                actionIcon={
+                  <IconButton aria-label={`info about ${card.name}`} className={useStyles.icon}>
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  }
+}
