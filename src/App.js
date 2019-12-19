@@ -59,7 +59,8 @@ export default class App extends Component {
       mtg.card
         .where({
           types: "creature",
-          contains: "imageUrl",
+          contains: "imageUrl", 
+          contains: "originalType",
           page: this.state.nextPage,
           pageSize: 20
         })
