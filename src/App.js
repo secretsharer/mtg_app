@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import debounce from "lodash.debounce";
 
 import SearchForm from "./components/SearchForm";
-import ScrollingCards from "./components/ScrollingCards";
+import CardsGrid from "./components/CardsGrid";
 // import FilterChip from "./FilterChip";
 import "./App.css";
+// import { Grid, GridList } from "@material-ui/core";
 
 const mtg = require("mtgsdk");
 
@@ -44,9 +45,9 @@ export default class App extends Component {
     }, 100);
   }
 
-  // UNSAFE_componentWillMount() { 
-  //   this.loadNextCards();
-  // }
+  UNSAFE_componentWillMount() { 
+    this.loadNextCards();
+  }
 
   handleSubmit = () => {
     this.loadNextCards();
@@ -107,7 +108,8 @@ export default class App extends Component {
           <p> Name of card : {this.state.name} </p>
         ) : (
           <React.Fragment>
-            <ScrollingCards cards={this.state.cards} />
+            {/* <ScrollingCards cards={this.state.cards} /> */}
+            <CardsGrid cards={this.state.cards} />
           </React.Fragment>
         )}
         {error && <div style={{ color: "#900" }}>{error}</div>}
