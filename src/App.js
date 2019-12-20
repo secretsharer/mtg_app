@@ -43,9 +43,9 @@ export default class App extends Component {
     }, 50);
   }
 
-  // UNSAFE_componentWillMount() { 
-  //   this.loadNextCards();
-  // }
+  UNSAFE_componentWillMount() { 
+    this.loadNextCards();
+  }
 
   handleSubmit = () => {
     this.loadNextCards();
@@ -107,9 +107,7 @@ export default class App extends Component {
         <header className="App-header">
           <h1 className="App-title">.:| Creatures Cards |:.</h1>
         </header>
-        {/* <button style={{ margin: "20px auto" }} onClick={this.handleSubmit}>
-          Display Creature Cards
-        </button> */}
+
         <Chips 
         names={this.handleSubmit} 
         cardsBySet={cardsBySet} 
@@ -121,7 +119,6 @@ export default class App extends Component {
           <p> Name of card : {this.state.name} </p>
         ) : (
           <React.Fragment>
-            {/* <ScrollingCards cards={this.state.cards} /> */}
             <CardsGrid cards={this.state.cards} />
           </React.Fragment>
         )}
