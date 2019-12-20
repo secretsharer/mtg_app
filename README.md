@@ -1,4 +1,4 @@
-##TODO:
+##`TODO:`  
 App.js: Apply sorting within switch statement to minimize arrays in memory  
         Experiment with math on the window to load cards sooner 
         Fix duplicate keys `contains` hack to prevent duplicate cards w no urls or sets from filling grid  
