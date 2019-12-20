@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import "../App.css";
 
 const mtg = require( "mtgsdk" );
