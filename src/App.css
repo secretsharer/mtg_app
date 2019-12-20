@@ -18,8 +18,8 @@
 }
 
 .search-box {
-  top:25%; 
-  left: -12%;  
+  top: 25%;
+  left: -12%;
   position: absolute;
   margin: 0px;
   padding-top: 0%;
@@ -32,8 +32,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  overflow: 'hidden';
-
+  overflow: "hidden";
 }
 
 .display-box {
@@ -51,14 +50,13 @@
 }
 
 .button:hover {
-  background-color: rgba(14, 21, 34, 0.938); 
+  background-color: rgba(14, 21, 34, 0.938);
   color: rgb(203, 203, 224);
 }
 
 a:hover {
   text-decoration: none;
 }
-
 
 [data-tooltip] {
   position: relative;
@@ -121,4 +119,3 @@ a:hover {
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-

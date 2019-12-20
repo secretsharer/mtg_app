@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import {_filter, debounce } from "lodash";
+import { debounce } from "lodash";
 import SearchForm from "./components/SearchForm";
 import CardsGrid from "./components/CardsGrid";
 import Chips from "./components/Chips";
 import "./App.css";
 
-const _ = require('lodash');
 const mtg = require("mtgsdk");
 
 export default class App extends Component {
@@ -16,10 +15,11 @@ export default class App extends Component {
       hasMore: true,
       isLoading: false,
       cards: [],
-      url: '',
+      url: "",
       nextPage: 1,
+      currentSort: "default"
     };
-  
+
     window.onscroll = debounce(() => {
       const {
         loadNextCards,
@@ -27,12 +27,12 @@ export default class App extends Component {
       } = this;
       console.log(hasMore, isLoading);
       if (error || isLoading || !hasMore) return;
-        console.log({
-          innerHeight: window.innerHeight,
-          scrollTop: document.documentElement.scrollTop,
-          party: window.innerHeight + document.documentElement.scrollTop,
-          noParty: document.documentElement.offsetHeight
-        });
+      console.log({
+        innerHeight: window.innerHeight,
+        scrollTop: document.documentElement.scrollTop,
+        party: window.innerHeight + document.documentElement.scrollTop,
+        noParty: document.documentElement.offsetHeight
+      });
       if (
         window.innerHeight + window.pageYOffset >=
         document.body.offsetHeight
@@ -43,7 +43,7 @@ export default class App extends Component {
     }, 50);
   }
 
-  UNSAFE_componentWillMount() { 
+  UNSAFE_componentWillMount() {
     this.loadNextCards();
   }
 
@@ -51,13 +51,12 @@ export default class App extends Component {
     this.loadNextCards();
   };
 
-
   loadNextCards = () => {
     this.setState({ isLoading: true }, () => {
       mtg.card
         .where({
           types: "creature",
-          contains: "imageUrl", 
+          contains: "imageUrl",
           contains: "originalType",
           page: this.state.nextPage,
           pageSize: 20
@@ -70,14 +69,14 @@ export default class App extends Component {
             set: card.set,
             type: card.types,
             id: card.id,
-            originalType: card.originalType,
+            originalType: card.originalType
           }));
 
           this.setState({
             hasMore: this.state.cards.length < 100,
             isLoading: false,
             cards: [...this.state.cards, ...nextCards],
-            nextPage: this.state.nextPage + 1,
+            nextPage: this.state.nextPage + 1
             // ScrollingCards: this.state,
           });
         })
@@ -92,34 +91,47 @@ export default class App extends Component {
 
   render() {
     const { error, hasMore, isLoading } = this.state;
-    const cardsBySet = _.filter(this.state.cards, (card) => {
-      console.info(card.set);
-      return card.set
-    })
-    const cardsByArtist = _.filter(this.state.cards, (card) => {
-      return card.artist
-    })
-    const cardsByOriginalType = _.filter(this.state.cards, (card) => {
-      return card.originalType
-    })
+    const cardsBySet = [...this.state.cards].sort((a, b) => {
+      return a.set.localeCompare(b.set, "en", { sensitivity: "base" });
+    });
+    const cardsByArtist = [...this.state.cards].sort((a, b) => {
+      return a.artist.localeCompare(b.artist, "en", { sensitivity: "base" });
+    });
+    const cardsByOriginalType = [...this.state.cards].sort((a, b) => {
+      return a.originalType.localeCompare(b.originalType, "en", {
+        sensitivity: "base"
+      });
+    });
+    let { cards, currentSort } = this.state;
+    if (currentSort === "sets") {
+      cards = cardsBySet;
+    }
+    if (currentSort === "artist") {
+      cards = cardsByArtist;
+    }
+    if (currentSort === "originalType") {
+      cards = cardsByOriginalType;
+    }
+    // consider putting sort within the if else to pass only a single array at a time
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">.:| Creatures Cards |:.</h1>
         </header>
 
-        <Chips 
-        names={this.handleSubmit} 
-        cardsBySet={cardsBySet} 
-        cardsByArtist={cardsByArtist} 
-        cardsByOriginalType={cardsByOriginalType}/>
+        <Chips
+          names={this.handleSubmit}
+          onClick={sort => {
+            this.setState({ currentSort: sort });
+          }}
+        />
 
         <SearchForm getCardsByName={this.getCardsByName} />
         {this.state.name ? (
           <p> Name of card : {this.state.name} </p>
         ) : (
           <React.Fragment>
-            <CardsGrid cards={this.state.cards} />
+            <CardsGrid cards={cards} />
           </React.Fragment>
         )}
         {error && <div style={{ color: "#900" }}>{error}</div>}
@@ -127,7 +139,5 @@ export default class App extends Component {
         {!hasMore && <div style={{ margin: "20px auto" }}>The end!</div>}
       </div>
     );
-    }
   }
-
-
+}
