@@ -10,7 +10,7 @@ Refactor from class component to functional component, might do this rn...
 
 `Chips.js:`  
 Move MUI styles from component to App.css    
-Find a solution that shows all card info AND reflows better than the gridList, like ScrollingCards does, but without the tooltip hack.         
+Find a solution that shows all card info AND reflows better than the gridList, like ScrollingCards does, but without the tooltip hack. Memo: ditch the tooltip hack.         
 
 `App.css`, `App.js:`   
 Make Search Cards input responsive    
