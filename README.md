@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##TODO:
+App.js: Apply sorting within switch statement to minimize arrays in memory  
+        Experiment with math on the window to load cards sooner
+CardsGrid.js: Refactor from class component to functional component, might do this rn anyway :)
+              Chips.js: Move MUI styles from component to App.css  
+              Find a solution that shows all card info AND reflows better than the gridList, like ScrollingCards does, but without the tooltip hack.
+App.css, App.js: Make Search Cards input responsive  
+                 Take more time to style the app
 
 ## Available Scripts
 
