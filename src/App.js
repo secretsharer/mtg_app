@@ -48,10 +48,6 @@ export default class App extends Component {
     this.loadNextCards();
   }
 
-  handleSubmit = () => {
-    this.loadNextCards();
-  };
-
   loadNextCards = () => {
     this.setState({ isLoading: true }, () => {
       mtg.card
