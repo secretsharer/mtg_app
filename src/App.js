@@ -27,7 +27,7 @@ export default class App extends Component {
       } = this;
       console.log(hasMore, isLoading);
       if (error || isLoading || !hasMore) return;
-      console.log({
+      console.info({
         innerHeight: window.innerHeight,
         scrollTop: document.documentElement.scrollTop,
         party: window.innerHeight + document.documentElement.scrollTop,
@@ -102,6 +102,7 @@ export default class App extends Component {
         sensitivity: "base"
       });
     });
+    // considering putting sort within the if else to pass only a single array at a time
     let { cards, currentSort } = this.state;
     if (currentSort === "sets") {
       cards = cardsBySet;
@@ -112,7 +113,7 @@ export default class App extends Component {
     if (currentSort === "originalType") {
       cards = cardsByOriginalType;
     }
-    // consider putting sort within the if else to pass only a single array at a time
+    
     return (
       <div className="App">
         <header className="App-header">

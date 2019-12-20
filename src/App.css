@@ -20,6 +20,7 @@
 .search-box {
   top: 25%;
   left: -12%;
+  flex-wrap: wrap;
   position: absolute;
   margin: 0px;
   padding-top: 0%;
