@@ -1,6 +1,6 @@
 ##  `Branches`  
 Running from `master`  
-cards grid loads on render
+cards grid loads on render  
 card data is displayed with card   
 scrolling fetches and displays more results  
 sorting by set, artist, etc...is available    
@@ -8,7 +8,7 @@ searching by card name yields first result
 grid resizes, but does not reflow columns  
 
 Running from `responsive-grid`  
-cards grid loads on render  
+cards grid loads on render    
 only card name is displayed with card as hover tooltip     
 scrolling fetches and displays more results    
 sorting by set, artist, etc...is available      
