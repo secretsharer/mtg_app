@@ -1,17 +1,23 @@
 ## `TODOS:`  
 
-App.js: Apply sorting within switch statement to minimize arrays in memory  
-        Experiment with math on the window to load cards sooner 
-        Fix duplicate keys `contains` hack to prevent duplicate cards w no urls or sets from filling grid  
+`App.js:`  
+Apply sorting within switch statement to minimize arrays in memory.    
+Experiment with math on the window to load cards sooner   
+Fix duplicate keys `contains` hack to prevent duplicate cards w no urls or sets from filling grid.   
 
-CardsGrid.js: Refactor from class component to functional component, might do this rn anyway :)
-              Chips.js: Move MUI styles from component to App.css  
-              Find a solution that shows all card info AND reflows better than the gridList, like ScrollingCards does, but without the tooltip hack.  
+`CardsGrid.js:`  
+Refactor from class component to functional component, might do this rn...  
 
-App.css, App.js: Make Search Cards input responsive  
-                 Take more time to style the app  
+`Chips.js:`  
+Move MUI styles from component to App.css    
+Find a solution that shows all card info AND reflows better than the gridList, like ScrollingCards does, but without the tooltip hack.         
 
-SearchForm.js: Add card data tile.   
+`App.css`, `App.js:`   
+Make Search Cards input responsive    
+Take more time to style the app  
+
+`SearchForm.js:`   
+Add card data tile.     
 
 Additional Functionality: Search, display and filter by artist, set, etc...
 
