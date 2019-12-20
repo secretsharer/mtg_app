@@ -4,7 +4,7 @@ import debounce from "lodash.debounce";
 
 import SearchForm from "./components/SearchForm";
 import ScrollingCards from "./components/ScrollingCards";
-// import FilterChip from "./FilterChip";
+import Chips from "./components/Chips";
 import "./App.css";
 
 const mtg = require("mtgsdk");
@@ -97,9 +97,10 @@ export default class App extends Component {
         <header className="App-header">
           <h1 className="App-title">| Creatures Cards |</h1>
         </header>
-        <button style={{ margin: "20px auto" }} onClick={this.handleSubmit}>
+        {/* <button style={{ margin: "20px auto" }} onClick={this.handleSubmit}>
           Display Creature Cards
-        </button>
+        </button> */}
+        <Chips />
 
         <SearchForm getCardsByName={this.getCardsByName} />
 

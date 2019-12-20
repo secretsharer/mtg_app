@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
   
-export default function Chips(props) {
+  const Chips = (props) => {
 
     const classes = useStyles();
 
@@ -66,3 +66,5 @@ export default function Chips(props) {
     );
 
  }
+
+ export default Chips;
