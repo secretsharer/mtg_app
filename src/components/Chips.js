@@ -22,19 +22,19 @@ const useStyles = makeStyles(theme => ({
 
     const handleNameClick = () => {
         console.info('Filtering cards by name.');
-            props.loadNextCards();
+        return props.loadNextCards;
     }
     const handleArtistClick = () => {
         console.info('Filtering cards by artist.');
-            props.cardsByArtist();
+        return props.cardsByArtist;
     };
     const handleSetClick = () => {
         console.info('Filtering cards by set.');
-            props.cardsBySet();
+        return props.cardsBySet;
     };
     const handleOriginalTypeClick = () => {
         console.info('Filtering cards by original type.');
-            props.cardsByOriginalType();
+        return props.cardsByOriginalType;
     };
 
         return (
