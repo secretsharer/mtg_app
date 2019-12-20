@@ -23,7 +23,7 @@ Experiment with math on the window to load cards sooner
 Fix duplicate keys `contains` hack to prevent duplicate cards w no urls or sets from filling grid.   
 
 `CardsGrid.js:`  
-Refactor from class component to functional component, might do this rn... 
+Refactor from class component to functional component, might do this rn...   
 Find a solution that shows all card info AND reflows better than the gridList, like ScrollingCards does, but without the tooltip hack. Memo: ditch the tooltip hack. 
 
 `Chips.js:`  
