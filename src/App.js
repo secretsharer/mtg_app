@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 // import Grid from "@material-ui/core/Grid";
 import debounce from "lodash.debounce";
-
 import SearchForm from "./components/SearchForm";
 import CardsGrid from "./components/CardsGrid";
 // import FilterChip from "./FilterChip";
+// import ScrollingCards from "./components/ScrollingCards";
+import Chips from "./components/Chips";
 import "./App.css";
 // import { Grid, GridList } from "@material-ui/core";
 
@@ -99,9 +100,10 @@ export default class App extends Component {
         <header className="App-header">
           <h1 className="App-title">| Creatures Cards |</h1>
         </header>
-        <button style={{ margin: "20px auto" }} onClick={this.handleSubmit}>
+        {/* <button style={{ margin: "20px auto" }} onClick={this.handleSubmit}>
           Display Creature Cards
-        </button>
+        </button> */}
+        <Chips />
 
         <SearchForm getCardsByName={this.getCardsByName} />
 
