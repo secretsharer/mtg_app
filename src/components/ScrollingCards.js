@@ -4,9 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import "../App.css";
 
 export default class ScrollingCards extends Component {
-//   constructor(props) {
-//     super(props);
-// }
+  constructor(props) {
+    super(props);
+}
 
   render() {
     return (

@@ -4,6 +4,7 @@ import SearchForm from "./components/SearchForm";
 import CardsGrid from "./components/CardsGrid";
 import Chips from "./components/Chips";
 import "./App.css";
+import ScrollingCards from "./components/ScrollingCards";
 
 const mtg = require("mtgsdk");
 
@@ -119,7 +120,7 @@ export default class App extends Component {
         <header className="App-header">
           <h1 className="App-title">.:| Creatures Cards |:.</h1>
         </header>
-
+        
         <Chips
           names={this.handleSubmit}
           onClick={sort => {
@@ -132,7 +133,7 @@ export default class App extends Component {
           <p> Name of card : {this.state.name} </p>
         ) : (
           <React.Fragment>
-            <CardsGrid cards={cards} />
+            <ScrollingCards cards={cards} />
           </React.Fragment>
         )}
         {error && <div style={{ color: "#900" }}>{error}</div>}

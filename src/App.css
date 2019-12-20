@@ -79,7 +79,7 @@ a:hover {
 [data-tooltip]:before {
   position: absolute;
   bottom: 50%;
-  left: 40%;
+  left: 51%;
   margin-bottom: 5px;
   margin-left: -33px;
   padding: 7px;
