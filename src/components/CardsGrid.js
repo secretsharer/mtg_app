@@ -10,6 +10,7 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexWrap: 'wrap',
     padding: 3,
+    paddingTop: 5,
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
@@ -29,7 +30,7 @@ export default class CardsGrid extends Component {
 
 render() {
   return (
-    <div className={useStyles.root} style={{marginLeft: 330}}>
+    <div className={useStyles.root} style={{marginLeft: 290}}>
       <GridList cellHeight={465} cols={3} style={{ height: 'auto', width: 'auto' }} className={useStyles.gridList}>
           {this.props.cards.map(card => (
             <GridListTile key={card.id}>

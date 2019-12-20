@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
-
+import Button from '@material-ui/core/Button';
 import "../App.css";
 
 const mtg = require( "mtgsdk" );
@@ -43,7 +43,7 @@ export default class SearchForm extends Component {
         <Container className="search-box" maxWidth="sm">
           <form onSubmit={this.getCardsByName}>
             <input name="name" />
-            <button>Search Cards</button>
+            <button className="button">SEARCH CARDS</button>
             <h4>{this.state.name}</h4>
             {this.state.cardError ? (
               <h5>I can't seem to find that card :(</h5>
